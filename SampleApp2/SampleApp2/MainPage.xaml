@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleApp2"
+             xmlns:abstractions="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
+             x:Class="SampleApp2.MainPage">
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+        <Button Text="Check All" Clicked="OnClick" />
+        <ListView HasUnevenRows="False" HorizontalOptions="FillAndExpand" BackgroundColor="Black"
+                    VerticalOptions="FillAndExpand" x:Name="AttendeeList" RowHeight="80">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="100">
+                        <StackLayout VerticalOptions="CenterAndExpand">
+                            <abstractions:SegmentedControl x:Name="AttendanceControl" SelectedSegment="{Binding Status}" SelectedTextColor="White" TintColor="{Binding StatusColor}">
+                                <abstractions:SegmentedControl.Children>
+                                    <abstractions:SegmentedControlOption Text="Missing"/>
+                                    <abstractions:SegmentedControlOption Text="Turned"/>
+                                    <abstractions:SegmentedControlOption Text="Attended"/>
+                                </abstractions:SegmentedControl.Children>
+                            </abstractions:SegmentedControl>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
